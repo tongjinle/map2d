@@ -1,0 +1,28 @@
+{
+  "name": "map2d",
+  "version": "1.0.0",
+  "description": "map2d",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tongjinle/map2d.git"
+  },
+  "keywords": [
+    "map"
+  ],
+  "author": "tongjinle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tongjinle/map2d/issues"
+  },
+  "homepage": "https://github.com/tongjinle/map2d#readme",
+  "dependencies": {
+    "lodash": "^4.17.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.39"
+  }
+}
