@@ -4,9 +4,9 @@
   "description": "map2d",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine",
+    "test": "npm run compile && jasmine",
     "compile": "npm i && tsc",
-    "preinstall": "npm i"
+    "postinstall": "tsc"
   },
   "repository": {
     "type": "git",
