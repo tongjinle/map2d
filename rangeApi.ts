@@ -2,9 +2,20 @@
 import * as _ from 'underscore';
 
 export interface IPosition {
-	x:number,
-	y:number
+	x: number,
+	y: number
 }
+
+export enum Direction  {
+	up,right,down,left
+};
+
+let allDirection = [
+	Direction.up,
+	Direction.right,
+	Direction.down,
+	Direction.left
+];
 
 // *************************************************************************
 // 基础range函数 START
@@ -16,16 +27,16 @@ export function lineRange(posiSource: IPosition, dist: number, dire: number): IP
 	let posiList: IPosition[] = [];
 	let xStep: number;
 	let yStep: number;
-	if (dire == 0) {
+	if (dire == Direction.up) {
 		xStep = 0;
 		yStep = 1;
-	} else if (dire == 1) {
+	} else if (dire == Direction.right) {
 		xStep = 1;
 		yStep = 0;
-	} else if (dire == 2) {
+	} else if (dire == Direction.down) {
 		xStep = 0;
 		yStep = -1;
-	} else if (dire == 3) {
+	} else if (dire == Direction.left) {
 		xStep = -1;
 		yStep = 0;
 	}
@@ -42,16 +53,16 @@ export function slashRange(posiSource: IPosition, dist: number, dire: number): I
 	let posiList: IPosition[] = [];
 	let xStep: number;
 	let yStep: number;
-	if (dire == 0) {
+	if (dire == Direction.up) {
 		xStep = 1;
 		yStep = 1;
-	} else if (dire == 1) {
+	} else if (dire == Direction.right) {
 		xStep = 1;
 		yStep = -1;
-	} else if (dire == 2) {
+	} else if (dire == Direction.down) {
 		xStep = -1;
 		yStep = -1;
-	} else if (dire == 3) {
+	} else if (dire == Direction.left) {
 		xStep = -1;
 		yStep = 1;
 	}
@@ -64,20 +75,22 @@ export function slashRange(posiSource: IPosition, dist: number, dire: number): I
 
 // 周围
 // near = line * 4个方向
-export function nearRange(posiSource: IPosition, dist: number): IPosition[] {
+export function nearRange(posiSource: IPosition, dist: Direction): IPosition[] {
 	let posiList: IPosition[] = [];
-	for (var i = 0; i < 4; i++) {
-		posiList = posiList.concat(lineRange(posiSource, dist, i));
+	for (var i = 0; i < allDirection.length; i++) {
+		let dire = allDirection[i];
+		posiList = posiList.concat(lineRange(posiSource, dist, dire));
 	}
 	return posiList;
 };
 
 // 四角度斜线
 // nearSlash = slash * 4;
-export function nearSlashRange(posiSource: IPosition, dist: number): IPosition[] {
+export function nearSlashRange(posiSource: IPosition, dist: Direction): IPosition[] {
 	let range: IPosition[] = [];
-	for (let i = 0; i < 4; i++) {
-		range = range.concat(slashRange(posiSource, dist, i));
+	for (let i = 0; i < allDirection.length; i++) {
+		let dire = allDirection[i];
+		range = range.concat(slashRange(posiSource, dist, dire));
 	}
 	return range;
 }
