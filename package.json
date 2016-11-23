@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run compile && jasmine",
     "compile": "npm i && tsc",
-    "postinstall": "tsc"
+    "postinstall": "npm run compile"
   },
   "repository": {
     "type": "git",
