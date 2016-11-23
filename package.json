@@ -1,11 +1,12 @@
 {
   "name": "map2d",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "map2d",
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-    "compile": "npm i && tsc"
+    "compile": "npm i && tsc",
+    "preinstall": "npm i"
   },
   "repository": {
     "type": "git",
@@ -22,9 +23,10 @@
   "homepage": "https://github.com/tongjinle/map2d#readme",
   "dependencies": {
     "jasmine": "^2.5.2",
-    "underscore": "^1.8.3",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
     "@types/jasmine": "^2.5.38",
     "@types/underscore": "^1.7.34"
-  },
-  "devDependencies": {}
+  }
 }
