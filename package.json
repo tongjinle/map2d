@@ -22,10 +22,9 @@
   "homepage": "https://github.com/tongjinle/map2d#readme",
   "dependencies": {
     "jasmine": "^2.5.2",
-    "underscore": "^1.8.3"
-  },
-  "devDependencies": {
+    "underscore": "^1.8.3",
     "@types/jasmine": "^2.5.38",
     "@types/underscore": "^1.7.34"
-  }
+  },
+  "devDependencies": {}
 }
