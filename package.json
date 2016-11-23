@@ -1,10 +1,11 @@
 {
   "name": "map2d",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "map2d",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jasmine",
+    "compile":"tsc"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,11 @@
   },
   "homepage": "https://github.com/tongjinle/map2d#readme",
   "dependencies": {
-    "lodash": "^4.17.2"
+    "jasmine": "^2.5.2",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.39"
+    "@types/jasmine": "^2.5.38",
+    "@types/underscore": "^1.7.34"
   }
 }
