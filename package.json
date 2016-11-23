@@ -1,11 +1,11 @@
 {
   "name": "map2d",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "map2d",
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-    "compile":"tsc"
+    "compile": "tsc"
   },
   "repository": {
     "type": "git",
