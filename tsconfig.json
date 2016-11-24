@@ -10,9 +10,7 @@
     },
 
     "files": [
-        "person.ts",
-        "student.ts",
-        "demo1.ts"
+        "index.ts"
     ],
     "include": [
         "test/*.ts"
