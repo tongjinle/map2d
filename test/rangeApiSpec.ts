@@ -1,11 +1,10 @@
-/// <reference path="../node_modules/@types/underscore/index.d.ts" />
-/// <reference path="../node_modules/@types/jasmine/index.d.ts" />
+
 
 import * as _ from 'underscore';
 import * as rangeApi from '../rangeApi';
+import {} from 'jasmine';
 
 type IPosition = rangeApi.IPosition;
-
 describe('range api', () => {
 	let sort = (posi: IPosition) => [posi.x, posi.y].join('-');
 
@@ -38,6 +37,7 @@ describe('range api', () => {
 		];
 		let rst = rangeApi.nearRange({ x: 1, y: 1 }, 2);
 		expect(_.sortBy(rst, sort)).toEqual(_.sortBy(exp, sort));
+
 
 	});
 

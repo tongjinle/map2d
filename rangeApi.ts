@@ -1,4 +1,4 @@
-/// <reference path="./node_modules/@types/underscore/index.d.ts" />
+
 import * as _ from 'underscore';
 
 export interface IPosition {

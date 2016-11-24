@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run compile && jasmine",
-    "compile": "npm i && tsc"
+    "compile": "npm i && rm -rf dist && tsc"
   },
   "repository": {
     "type": "git",
