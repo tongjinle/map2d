@@ -9,6 +9,12 @@
         "noEmitOnError": true
     },
 
+    "files": [
+        "person.ts",
+        "student.ts",
+        "demo1.ts"
+    ],
+
     "exclude": [
         "./node_modules"
     ]
