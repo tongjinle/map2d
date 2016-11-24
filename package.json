@@ -1,6 +1,6 @@
 {
   "name": "map2d",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "map2d",
   "main": "index.js",
   "scripts": {
