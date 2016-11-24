@@ -8,8 +8,14 @@ export declare enum Direction {
     down = 2,
     left = 3,
 }
-export declare function lineRange(posiSource: IPosition, dist: number, dire: number): IPosition[];
-export declare function slashRange(posiSource: IPosition, dist: number, dire: number): IPosition[];
+export declare enum SlashDirection {
+    upRight = 0,
+    downRight = 1,
+    downLeft = 2,
+    upLeft = 3,
+}
+export declare function lineRange(posiSource: IPosition, dist: number, dire: Direction): IPosition[];
+export declare function slashRange(posiSource: IPosition, dist: number, dire: SlashDirection): IPosition[];
 export declare function nearRange(posiSource: IPosition, dist: Direction): IPosition[];
 export declare function nearSlashRange(posiSource: IPosition, dist: Direction): IPosition[];
 export declare function circleRange(posiSource: IPosition, radius: number): IPosition[];

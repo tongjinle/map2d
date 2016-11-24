@@ -10,11 +10,22 @@ export enum Direction  {
 	up,right,down,left
 };
 
+export enum SlashDirection{
+	upRight,downRight,downLeft,upLeft
+}
+
 let allDirection = [
 	Direction.up,
 	Direction.right,
 	Direction.down,
 	Direction.left
+];
+
+let allSlashDirection = [
+	SlashDirection.upRight,
+	SlashDirection.downRight,
+	SlashDirection.downLeft,
+	SlashDirection.upLeft
 ];
 
 // *************************************************************************
@@ -23,7 +34,7 @@ let allDirection = [
 
 // 直线
 // 0123 -> 上右下左
-export function lineRange(posiSource: IPosition, dist: number, dire: number): IPosition[] {
+export function lineRange(posiSource: IPosition, dist: number, dire: Direction): IPosition[] {
 	let posiList: IPosition[] = [];
 	let xStep: number;
 	let yStep: number;
@@ -49,20 +60,20 @@ export function lineRange(posiSource: IPosition, dist: number, dire: number): IP
 
 // 斜线
 // 0123 -> 右上,右下,左下,左上
-export function slashRange(posiSource: IPosition, dist: number, dire: number): IPosition[] {
+export function slashRange(posiSource: IPosition, dist: number, dire: SlashDirection): IPosition[] {
 	let posiList: IPosition[] = [];
 	let xStep: number;
 	let yStep: number;
-	if (dire == Direction.up) {
+	if (dire == SlashDirection.upRight) {
 		xStep = 1;
 		yStep = 1;
-	} else if (dire == Direction.right) {
+	} else if (dire == SlashDirection.downRight) {
 		xStep = 1;
 		yStep = -1;
-	} else if (dire == Direction.down) {
+	} else if (dire == SlashDirection.downLeft) {
 		xStep = -1;
 		yStep = -1;
-	} else if (dire == Direction.left) {
+	} else if (dire == SlashDirection.upLeft) {
 		xStep = -1;
 		yStep = 1;
 	}
@@ -88,8 +99,8 @@ export function nearRange(posiSource: IPosition, dist: Direction): IPosition[] {
 // nearSlash = slash * 4;
 export function nearSlashRange(posiSource: IPosition, dist: Direction): IPosition[] {
 	let range: IPosition[] = [];
-	for (let i = 0; i < allDirection.length; i++) {
-		let dire = allDirection[i];
+	for (let i = 0; i < allSlashDirection.length; i++) {
+		let dire = allSlashDirection[i];
 		range = range.concat(slashRange(posiSource, dist, dire));
 	}
 	return range;

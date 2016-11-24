@@ -8,11 +8,24 @@ var _ = require('underscore');
 })(exports.Direction || (exports.Direction = {}));
 var Direction = exports.Direction;
 ;
+(function (SlashDirection) {
+    SlashDirection[SlashDirection["upRight"] = 0] = "upRight";
+    SlashDirection[SlashDirection["downRight"] = 1] = "downRight";
+    SlashDirection[SlashDirection["downLeft"] = 2] = "downLeft";
+    SlashDirection[SlashDirection["upLeft"] = 3] = "upLeft";
+})(exports.SlashDirection || (exports.SlashDirection = {}));
+var SlashDirection = exports.SlashDirection;
 var allDirection = [
     Direction.up,
     Direction.right,
     Direction.down,
     Direction.left
+];
+var allSlashDirection = [
+    SlashDirection.upRight,
+    SlashDirection.downRight,
+    SlashDirection.downLeft,
+    SlashDirection.upLeft
 ];
 // *************************************************************************
 // 基础range函数 START
@@ -52,19 +65,19 @@ function slashRange(posiSource, dist, dire) {
     var posiList = [];
     var xStep;
     var yStep;
-    if (dire == Direction.up) {
+    if (dire == SlashDirection.upRight) {
         xStep = 1;
         yStep = 1;
     }
-    else if (dire == Direction.right) {
+    else if (dire == SlashDirection.downRight) {
         xStep = 1;
         yStep = -1;
     }
-    else if (dire == Direction.down) {
+    else if (dire == SlashDirection.downLeft) {
         xStep = -1;
         yStep = -1;
     }
-    else if (dire == Direction.left) {
+    else if (dire == SlashDirection.upLeft) {
         xStep = -1;
         yStep = 1;
     }
@@ -91,8 +104,8 @@ exports.nearRange = nearRange;
 // nearSlash = slash * 4;
 function nearSlashRange(posiSource, dist) {
     var range = [];
-    for (var i = 0; i < allDirection.length; i++) {
-        var dire = allDirection[i];
+    for (var i = 0; i < allSlashDirection.length; i++) {
+        var dire = allSlashDirection[i];
         range = range.concat(slashRange(posiSource, dist, dire));
     }
     return range;
