@@ -6,12 +6,12 @@ export interface IPosition {
 	y: number
 }
 
-export enum Direction  {
-	up,right,down,left
+export enum Direction {
+	up, right, down, left
 };
 
-export enum SlashDirection{
-	upRight,downRight,downLeft,upLeft
+export enum SlashDirection {
+	upRight, downRight, downLeft, upLeft
 }
 
 let allDirection = [
@@ -170,6 +170,61 @@ export function sub(posiListSource: IPosition[], posiListTarget: IPosition[]): I
 	return posiList;
 }
 
+// 获取方向
+export function getDirection(sourcePosi: IPosition, targetPosi: IPosition): Direction {
+	let dire: Direction;
+	var sx = sourcePosi.x;
+	var sy = sourcePosi.y;
+	var tx = targetPosi.x;
+	var ty = targetPosi.y;
+
+	if (sx != tx && sy != ty) {
+		return undefined;
+	}
+	if (sx == tx) {
+		if (sy > ty) {
+			dire = Direction.up;
+		} else {
+			dire = Direction.down;
+		}
+	} else {
+		if (sx > tx) {
+			dire = Direction.right;
+		} else {
+			dire = Direction.left;
+		}
+	}
+	return dire;
+}
+
+// 获取斜线方向
+export function getSlashDirection(sourcePosi: IPosition, targetPosi:IPosition):SlashDirection{
+	let dire: SlashDirection;
+	var sx = sourcePosi.x;
+	var sy = sourcePosi.y;
+	var tx = targetPosi.x;
+	var ty = targetPosi.y;
+
+	if(Math.abs((sy-ty)/(sx-tx))!=1){
+		return undefined;
+	}
+
+	if(sy>ty){
+		if(sx>tx){
+			dire = SlashDirection.upRight;
+		}else {
+			dire = SlashDirection.upLeft;
+		}
+	}else{
+		if(sx>tx){
+			dire = SlashDirection.downRight;
+		}else{
+			dire = SlashDirection.downLeft;
+		}
+	}
+
+	return dire;
+}
 
 
 // *************************************************************************

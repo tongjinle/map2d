@@ -23,3 +23,5 @@ export declare function manhattanRange(posiSource: IPosition, radius: number): I
 export declare function getBetween(pa: IPosition, pb: IPosition): IPosition[];
 export declare function unique(posiList: IPosition[]): IPosition[];
 export declare function sub(posiListSource: IPosition[], posiListTarget: IPosition[]): IPosition[];
+export declare function getDirection(sourcePosi: IPosition, targetPosi: IPosition): Direction;
+export declare function getSlashDirection(sourcePosi: IPosition, targetPosi: IPosition): SlashDirection;

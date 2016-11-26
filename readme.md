@@ -36,6 +36,14 @@ unique(posiList: IPosition[]): IPosition[];
 
 // 9 差集运算
 sub(posiListSource: IPosition[], posiListTarget: IPosition[]): IPosition[];
+
+// 10 获取sourcePosi相对于targetPosi的直线方向
+getDirection(sourcePosi: IPosition, targetPosi: IPosition): Direction;
+
+// 11 获取sourcePosi相对于targetPosi的斜线方向
+getSlashDirection(sourcePosi: IPosition, targetPosi: IPosition): SlashDirection;
+
+
 ```
 
 ## npm脚本

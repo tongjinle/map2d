@@ -176,6 +176,64 @@ function sub(posiListSource, posiListTarget) {
     return posiList;
 }
 exports.sub = sub;
+// 获取方向
+function getDirection(sourcePosi, targetPosi) {
+    var dire;
+    var sx = sourcePosi.x;
+    var sy = sourcePosi.y;
+    var tx = targetPosi.x;
+    var ty = targetPosi.y;
+    if (sx != tx && sy != ty) {
+        return undefined;
+    }
+    if (sx == tx) {
+        if (sy > ty) {
+            dire = Direction.up;
+        }
+        else {
+            dire = Direction.down;
+        }
+    }
+    else {
+        if (sx > tx) {
+            dire = Direction.right;
+        }
+        else {
+            dire = Direction.left;
+        }
+    }
+    return dire;
+}
+exports.getDirection = getDirection;
+// 获取斜线方向
+function getSlashDirection(sourcePosi, targetPosi) {
+    var dire;
+    var sx = sourcePosi.x;
+    var sy = sourcePosi.y;
+    var tx = targetPosi.x;
+    var ty = targetPosi.y;
+    if (Math.abs((sy - ty) / (sx - tx)) != 1) {
+        return undefined;
+    }
+    if (sy > ty) {
+        if (sx > tx) {
+            dire = SlashDirection.upRight;
+        }
+        else {
+            dire = SlashDirection.upLeft;
+        }
+    }
+    else {
+        if (sx > tx) {
+            dire = SlashDirection.downRight;
+        }
+        else {
+            dire = SlashDirection.downLeft;
+        }
+    }
+    return dire;
+}
+exports.getSlashDirection = getSlashDirection;
 // *************************************************************************
 // 基础range函数 END
 // *************************************************************************

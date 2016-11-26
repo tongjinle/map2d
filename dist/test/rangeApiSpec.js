@@ -115,5 +115,16 @@ describe('range api', function () {
         ];
         expect(rangeApi.getBetween(pa, pb)).toEqual(target);
     });
+    it('getDirection', function () {
+        var pa = { x: 3, y: 4 };
+        var pb = { x: 3, y: 8 };
+        expect(rangeApi.getDirection(pa, pb)).toBe(rangeApi.Direction.down);
+    });
+    it('getSlashDirection', function () {
+        var pa = { x: 3, y: 4 };
+        var pb = { x: 6, y: 7 };
+        expect(rangeApi.getDirection(pa, pb)).toBe(undefined);
+        expect(rangeApi.getSlashDirection(pa, pb)).toBe(rangeApi.SlashDirection.downLeft);
+    });
 });
 //# sourceMappingURL=rangeApiSpec.js.map

@@ -149,6 +149,20 @@ describe('range api', () => {
 
 	});
 
+	it('getDirection',()=>{
+		let pa = {x:3,y:4};
+		let pb = {x:3,y:8};
+		expect(rangeApi.getDirection(pa, pb)).toBe(rangeApi.Direction.down);
+	});
+
+	it('getSlashDirection',()=>{
+		let pa = { x: 3, y: 4 };
+		let pb = { x: 6, y: 7 };
+		expect(rangeApi.getDirection(pa, pb)).toBe(undefined);
+		expect(rangeApi.getSlashDirection(pa, pb)).toBe(rangeApi.SlashDirection.downLeft);
+
+	});
+
 });
 
 
