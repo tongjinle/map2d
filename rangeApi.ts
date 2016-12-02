@@ -198,33 +198,44 @@ export function getDirection(sourcePosi: IPosition, targetPosi: IPosition): Dire
 }
 
 // 获取斜线方向
-export function getSlashDirection(sourcePosi: IPosition, targetPosi:IPosition):SlashDirection{
+export function getSlashDirection(sourcePosi: IPosition, targetPosi: IPosition): SlashDirection {
 	let dire: SlashDirection;
 	var sx = sourcePosi.x;
 	var sy = sourcePosi.y;
 	var tx = targetPosi.x;
 	var ty = targetPosi.y;
 
-	if(Math.abs((sy-ty)/(sx-tx))!=1){
+	if (Math.abs((sy - ty) / (sx - tx)) != 1) {
 		return undefined;
 	}
 
-	if(sy>ty){
-		if(sx>tx){
+	if (sy > ty) {
+		if (sx > tx) {
 			dire = SlashDirection.upRight;
-		}else {
+		} else {
 			dire = SlashDirection.upLeft;
 		}
-	}else{
-		if(sx>tx){
+	} else {
+		if (sx > tx) {
 			dire = SlashDirection.downRight;
-		}else{
+		} else {
 			dire = SlashDirection.downLeft;
 		}
 	}
 
 	return dire;
 }
+
+
+
+// 判断两个坐标是否相等
+export function isPositionEqual(pa: IPosition, pb: IPosition) {
+	if (!pa || !pb) {
+		return false;
+	}
+	return pa.x == pb.x && pa.y == pb.y;
+}
+
 
 
 // *************************************************************************
